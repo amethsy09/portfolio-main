@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouhamed Sy | Développeur Web & Mobile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            600: '#475569',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #4ade80, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.2);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #3b82f6);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(34, 197, 94, 0.3);
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        .project-image {
+            transition: transform 0.5s ease;
+        }
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 font-sans min-h-screen">
+    <!-- Navbar -->
+    <header class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">
+                <span class="gradient-text">Mouhamed</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-sm font-medium hover:text-primary-400 transition-colors relative group">
+                    Accueil
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-blue-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="text-sm font-medium hover:text-primary-400 transition-colors relative group">
+                    À propos
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-blue-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#services" class="text-sm font-medium hover:text-primary-400 transition-colors relative group">
+                    Services
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-blue-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#projects" class="text-sm font-medium hover:text-primary-400 transition-colors relative group">
+                    Projets
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-blue-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="ml-4 px-6 py-2 btn-primary text-sm font-medium rounded-full text-white">
+                    Me contacter
+                </a>
+            </nav>
+            <button class="md:hidden text-gray-400 hover:text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 pb-16 px-6 md:px-10 fade-in">
+        <div class="container mx-auto">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-gray-800/50 border border-gray-700 mb-4">
+                        <p class="text-sm text-primary-400">Bonjour, je suis</p>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        <span class="gradient-text">Mouhamed Sy</span>
+                        <span class="block mt-2 text-2xl md:text-3xl text-gray-300">Développeur Web & Mobile</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 max-w-2xl">
+                        Je crée des expériences numériques exceptionnelles avec des solutions sur mesure et innovantes.
+                        Passionné par le code et le design, je transforme les idées en réalité.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="px-8 py-3 btn-primary text-white font-medium rounded-full text-sm md:text-base transition-all duration-300 transform hover:-translate-y-1">
+                            Me contacter
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="./downloads/cv.pdf" download="CV_Mouhamed_Sy.pdf" 
+                           class="px-8 py-3 border-2 border-primary-500 text-primary-400 hover:bg-primary-500/10 font-medium rounded-full text-sm md:text-base transition-all duration-300 transform hover:-translate-y-1">
+                            Télécharger CV
+                            <i class="fas fa-download ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="pt-8 flex items-center justify-center lg:justify-start space-x-6">
+                        <a href="https://github.com/amethsy09/" class="text-gray-400 hover:text-primary-400 transition-colors" aria-label="GitHub">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mouhamed-sy-170728308?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BC9swwyG2SvuiUyD4VrjGYw%3D%3D" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Twitter">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-16 lg:mt-0 relative">
+                    <div class="relative z-10 max-w-md mx-auto">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-gradient-to-r from-primary-500 to-blue-500 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
+                            <img src="./image/WhatsApp Image 2025-06-16 à 12.52.46_c0b4f320.jpg" 
+                                 alt="Mouhamed Sy" 
+                                 class="relative z-10 w-full max-w-xs md:max-w-md mx-auto rounded-full border-4 border-gray-800 shadow-2xl transition-all duration-700 hover:scale-105">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 md:-right-10 w-24 h-24 md:w-32 md:h-32 bg-primary-500/10 rounded-full flex items-center justify-center">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-primary-500/20 rounded-full animate-ping"></div>
+                                <div class="relative w-16 h-16 md:w-20 md:h-20 bg-primary-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-xl">5+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-6 -left-6 md:-left-10 w-20 h-20 md:w-24 md:h-24 bg-blue-500/10 rounded-full flex items-center justify-center">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-blue-500/20 rounded-full animate-ping"></div>
+                                <div class="relative w-14 h-14 md:w-16 md:h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-trophy text-white text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 md:px-10 bg-gray-900/50 fade-in">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    <span class="gradient-text">À propos de moi</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="relative z-10 bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50">
+                        <h3 class="text-2xl font-bold text-white mb-4">Qui suis-je ?</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Passionné par le développement web et mobile, je mets mes compétences techniques 
+                            et ma créativité au service de projets innovants. Mon objectif est de créer des 
+                            expériences numériques à la fois belles et fonctionnelles.
+                        </p>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            Avec une solide expérience dans les technologies modernes, je m'adapte rapidement 
+                            aux nouveaux défis et je m'engage à fournir un travail de qualité à chaque projet.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 bg-primary-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">Nom :</span>
+                                <span class="ml-2 text-white">Mouhamed Sy</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 bg-primary-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">Email :</span>
+                                <span class="ml-2 text-white">mouhamedsy2221@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 bg-primary-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">Téléphone :</span>
+                                <span class="ml-2 text-white">+221 77 363 29 63</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 bg-primary-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">Ville :</span>
+                                <span class="ml-2 text-white">Dakar, Sénégal</span>
+                            </div>
+                        </div>
+                        <a href="./downloads/cv.pdf" download class="mt-8 inline-block px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-all duration-300 transform hover:-translate-y-1">
+                            Télécharger mon CV
+                        </a>
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-primary-500/10 rounded-full -z-10"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-500/10 rounded-full -z-10"></div>
+                </div>
+
+                <!-- Skills Section -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-8">Mes compétences</h3>
+                    <div class="space-y-6">
+                        <!-- Compétence 1 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-300 font-medium">Développement Frontend</span>
+                                <span class="text-primary-400 font-bold">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétence 2 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-300 font-medium">Développement Backend</span>
+                                <span class="text-primary-400 font-bold">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-blue-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétence 3 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-300 font-medium">UI/UX Design</span>
+                                <span class="text-primary-400 font-bold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétence 4 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-300 font-medium">Gestion de Projet</span>
+                                <span class="text-primary-400 font-bold">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="text-xl font-bold text-white mb-6">Technologies que j'utilise</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                HTML5 & CSS3
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                JavaScript (ES6+)
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                Java
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                React.js
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                Node.js
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                MongoDB
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                wordpress
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                Git & GitHub
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                Php
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                PostgreSql
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                Mysql
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                tailwindcss
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                bootstrap
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                figma
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                adobe illustrator et photoshop
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                Intelligence Artificielle
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                Spring Boot
+                            </span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-sm text-gray-300 border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-colors">
+                                Docker
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 md:px-10 bg-gray-800/50 fade-in">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    <span class="gradient-text">Mes Services</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Je propose des solutions web et mobiles sur mesure pour répondre à vos besoins spécifiques.
+                    Découvrez comment je peux vous aider à concrétiser vos projets.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-500/20 transition-colors">
+                        <i class="fas fa-laptop-code text-3xl text-primary-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Développement Web</h3>
+                    <p class="text-gray-400 mb-6">
+                        Création de sites web modernes, réactifs et performants, optimisés pour le référencement et offrant une excellente expérience utilisateur.
+                    </p>
+                    <div class="flex items-center text-primary-500 font-medium group-hover:translate-x-2 transition-transform">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                    <div class="absolute -z-10 -inset-1 bg-gradient-to-r from-primary-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                        <i class="fas fa-mobile-alt text-3xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Applications Mobiles</h3>
+                    <p class="text-gray-400 mb-6">
+                        Conception et développement d'applications mobiles natives et cross-plateformes pour iOS et Android, offrant des performances optimales.
+                    </p>
+                    <div class="flex items-center text-blue-400 font-medium group-hover:translate-x-2 transition-transform">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                    <div class="absolute -z-10 -inset-1 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                        <i class="fas fa-paint-brush text-3xl text-purple-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">UI/UX Design</h3>
+                    <p class="text-gray-400 mb-6">
+                        Conception d'interfaces utilisateur intuitives et d'expériences utilisateur exceptionnelles pour maximiser l'engagement et la satisfaction des utilisateurs.
+                    </p>
+                    <div class="flex items-center text-purple-400 font-medium group-hover:translate-x-2 transition-transform">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                    <div class="absolute -z-10 -inset-1 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500/20 transition-colors">
+                        <i class="fas fa-search-dollar text-3xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">SEO & Référencement</h3>
+                    <p class="text-gray-400 mb-6">
+                        Optimisation pour les moteurs de recherche (SEO) pour améliorer la visibilité de votre site web et attirer plus de trafic qualifié.
+                    </p>
+                    <div class="flex items-center text-yellow-400 font-medium group-hover:translate-x-2 transition-transform">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                    <div class="absolute -z-10 -inset-1 bg-gradient-to-r from-yellow-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-red-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-500/20 transition-colors">
+                        <i class="fas fa-tools text-3xl text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Maintenance & Support</h3>
+                    <p class="text-gray-400 mb-6">
+                        Services de maintenance continue, de mise à jour et de support technique pour assurer le bon fonctionnement de vos applications web et mobiles.
+                    </p>
+                    <div class="flex items-center text-red-400 font-medium group-hover:translate-x-2 transition-transform">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                    <div class="absolute -z-10 -inset-1 bg-gradient-to-r from-red-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="fas fa-lightbulb text-3xl text-cyan-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Conseil Digital</h3>
+                    <p class="text-gray-400 mb-6">
+                        Expertise et conseils stratégiques pour développer votre présence en ligne et optimiser vos processus numériques.
+                    </p>
+                    <div class="flex items-center text-cyan-400 font-medium group-hover:translate-x-2 transition-transform">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                    <div class="absolute -z-10 -inset-1 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <p class="text-gray-400 mb-6">Vous avez un projet en tête ou des questions sur mes services ?</p>
+                <a href="#contact" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-primary-500 to-blue-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-primary-500/20 transition-all duration-300 transform hover:-translate-y-1">
+                    Discutons de votre projet
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 md:px-10 bg-gray-900/50 fade-in">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    <span class="gradient-text">Mes Projets</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Découvrez une sélection de mes projets récents. Chaque projet représente une solution unique
+                    adaptée aux besoins spécifiques de mes clients.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projet 1 -->
+                <div class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Tableau de bord analytique" 
+                             class="w-full h-48 object-cover project-image">
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com/amethsy09/projet1" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-primary-500 transition-colors">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                            <a href="https://www.figma.com/file/exemple" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-purple-500 transition-colors">
+                                <i class="fab fa-figma mr-1"></i> Design
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Tableau de bord analytique</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Une solution complète de visualisation de données avec des graphiques interactifs et des tableaux de bord personnalisables.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">React.js</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Node.js</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">MongoDB</span>
+                        </div>
+                        <a href="https://github.com/amethsy09/projet1" target="_blank" 
+                           class="inline-flex items-center text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
+                            Voir le projet <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Application de gestion de tâches" 
+                             class="w-full h-48 object-cover project-image">
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com/amethsy09/projet2" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-primary-500 transition-colors">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Application de gestion de tâches</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Une application mobile complète pour la gestion des tâches avec synchronisation en temps réel et notifications.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Flutter</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Firebase</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Dart</span>
+                        </div>
+                        <a href="https://github.com/amethsy09/projet2" target="_blank" 
+                           class="inline-flex items-center text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
+                            Voir le projet <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Site e-commerce" 
+                             class="w-full h-48 object-cover project-image">
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com/amethsy09/projet3" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-primary-500 transition-colors">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                            <a href="https://www.figma.com/file/exemple2" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-purple-500 transition-colors">
+                                <i class="fab fa-figma mr-1"></i> Design
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Plateforme e-commerce</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Une plateforme e-commerce complète avec gestion de produits, panier d'achat et système de paiement sécurisé.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Vue.js</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Laravel</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">MySQL</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Stripe</span>
+                        </div>
+                        <a href="https://github.com/amethsy09/projet3" target="_blank" 
+                           class="inline-flex items-center text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
+                            Voir le projet <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet 4 -->
+                <div class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Réseau social" 
+                             class="w-full h-48 object-cover project-image">
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com/amethsy09/projet4" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-primary-500 transition-colors">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Réseau social communautaire</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Un réseau social avec fonctionnalités de publication, commentaires, likes et système de messagerie privée.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">React Native</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">GraphQL</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">MongoDB</span>
+                        </div>
+                        <a href="https://github.com/amethsy09/projet4" target="_blank" 
+                           class="inline-flex items-center text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
+                            Voir le projet <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet 5 -->
+                <div class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Application de rencontre" 
+                             class="w-full h-48 object-cover project-image">
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com/amethsy09/projet5" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-primary-500 transition-colors">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                            <a href="https://www.figma.com/file/exemple3" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-purple-500 transition-colors">
+                                <i class="fab fa-figma mr-1"></i> Design
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Application de rencontre</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Une application mobile de rencontre avec géolocalisation, chat en temps réel et algorithmes de matching.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Flutter</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Firebase</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">Node.js</span>
+                        </div>
+                        <a href="https://github.com/amethsy09/projet5" target="_blank" 
+                           class="inline-flex items-center text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
+                            Voir le projet <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Projet 6 -->
+                <div class="project-card bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-primary-500/30 transition-all duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                             alt="Portfolio artistique" 
+                             class="w-full h-48 object-cover project-image">
+                        <div class="absolute top-4 right-4 flex space-x-2">
+                            <a href="https://github.com/amethsy09/projet6" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-primary-500 transition-colors">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                            <a href="https://www.figma.com/file/exemple4" target="_blank" 
+                               class="tech-badge px-3 py-1 rounded-full text-xs font-medium text-white bg-gray-900/80 hover:bg-purple-500 transition-colors">
+                                <i class="fab fa-figma mr-1"></i> Design
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Portfolio artistique</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Un portfolio en ligne élégant pour un artiste, avec galerie interactive, blog et système de contact.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">HTML/CSS</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">JavaScript</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-xs text-gray-300">PHP</span>
+                        </div>
+                        <a href="https://github.com/amethsy09/projet6" target="_blank" 
+                           class="inline-flex items-center text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
+                            Voir le projet <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://github.com/amethsy09" target="_blank" 
+                   class="inline-flex items-center px-6 py-3 border border-primary-500 text-primary-400 hover:bg-primary-500/10 rounded-lg transition-colors duration-300">
+                    <i class="fab fa-github mr-2"></i> Voir tous mes projets sur GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-10 bg-gray-900/50 fade-in">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    <span class="gradient-text">Contactez-moi</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Vous avez un projet en tête ou une question ? N'hésitez pas à me contacter. 
+                    Je vous répondrai dans les plus brefs délais.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Informations de contact -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary-500/10 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-envelope text-xl text-primary-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Email</h3>
+                            <a href="mailto: mouhamedsy2221@gmail.com" class="text-gray-400 hover:text-primary-400 transition-colors">
+                                mouhamedsy2221@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-phone-alt text-xl text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Téléphone</h3>
+                            <a href="tel:+221773632963" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                +221 77 363 29 63
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-xl text-purple-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Localisation</h3>
+                            <p class="text-gray-400">Dakar, Sénégal</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <h3 class="text-lg font-semibold text-white mb-4">Réseaux sociaux</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/amethsy09/" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary-500/10 flex items-center justify-center text-gray-400 hover:text-primary-400 border border-gray-700 hover:border-primary-500/30 transition-all">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mouhamed-sy-170728308/" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-500/10 flex items-center justify-center text-gray-400 hover:text-blue-400 border border-gray-700 hover:border-blue-500/30 transition-all">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/amethsy09" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-cyan-500/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 border border-gray-700 hover:border-cyan-500/30 transition-all">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/amethsy11?igsh=eWVkejV0ZWdzbzhk&utm_source=ig_contact_invite" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-pink-500/10 flex items-center justify-center text-gray-400 hover:text-pink-400 border border-gray-700 hover:border-pink-500/30 transition-all">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire de contact -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="relative">
+                                <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Votre nom</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-500"></i>
+                                    </div>
+                                    <input type="text" id="name" name="name" required
+                                        class="w-full pl-10 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
+                                        placeholder="Entrez votre nom">
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Votre email</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-gray-500"></i>
+                                    </div>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full pl-10 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
+                                        placeholder="votre@email.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Sujet</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-tag text-gray-500"></i>
+                                </div>
+                                <input type="text" id="subject" name="subject" required
+                                    class="w-full pl-10 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
+                                    placeholder="Objet de votre message">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Votre message</label>
+                            <div class="relative">
+                                <div class="absolute top-3 left-3">
+                                    <i class="fas fa-comment-alt text-gray-500"></i>
+                                </div>
+                                <textarea id="message" name="message" rows="5" required
+                                    class="w-full pl-10 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all resize-none"
+                                    placeholder="Décrivez votre projet ou votre demande..."></textarea>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <button type="submit"
+                                class="w-full px-6 py-3.5 bg-gradient-to-r from-primary-500 to-blue-500 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-primary-500/20 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Envoyer le message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/80 backdrop-blur-sm border-t border-gray-800 pt-16 pb-8 px-6 md:px-10">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+                <!-- Colonne 1 : À propos -->
+                <div class="md:col-span-4">
+                    <div class="flex items-center mb-6">
+                        <span class="text-2xl font-bold gradient-text">Mouhamed Sy</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Développeur web & mobile passionné par la création d'expériences numériques exceptionnelles. 
+                        Je transforme les idées en réalité à travers le code et le design.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/amethsy09/" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary-500/10 flex items-center justify-center text-gray-400 hover:text-primary-400 border border-gray-700 hover:border-primary-500/30 transition-all" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mouhamed-sy-170728308/" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-500/10 flex items-center justify-center text-gray-400 hover:text-blue-400 border border-gray-700 hover:border-blue-500/30 transition-all" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/amethsy09" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-cyan-500/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 border border-gray-700 hover:border-cyan-500/30 transition-all" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/amethsy11?igsh=eWVkejV0ZWdzbzhk&utm_source=ig_contact_invite" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-pink-500/10 flex items-center justify-center text-gray-400 hover:text-pink-400 border border-gray-700 hover:border-pink-500/30 transition-all" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonne 2 : Liens rapides -->
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-semibold text-white mb-6">Liens rapides</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            Accueil
+                        </a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            À propos
+                        </a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            Services
+                        </a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            Projets
+                        </a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            Contact
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Services -->
+                <div class="md:col-span-3">
+                    <h3 class="text-lg font-semibold text-white mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            Développement Web
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            Applications Mobiles
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            UI/UX Design
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors flex items-center">
+                            <i class="fas fa-chevron-right text-xs text-primary-500 mr-2"></i>
+                            SEO & Référencement
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 4 : Newsletter -->
+                <div class="md:col-span-3">
+                    <h3 class="text-lg font-semibold text-white mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Abonnez-vous à ma newsletter pour recevoir les dernières actualités et mises à jour.</p>
+                    <form class="space-y-3">
+                        <div class="relative">
+                            <input type="email" placeholder="Votre adresse email" 
+                                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder-gray-500">
+                            <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-primary-500 to-blue-500 text-white p-2 rounded-lg hover:opacity-90 transition-opacity">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright et mentions légales -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                        &copy; 2025 Mouhamed Sy. Tous droits réservés.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-primary-400 text-sm transition-colors">Politique de confidentialité</a>
+                        <a href="#" class="text-gray-500 hover:text-primary-400 text-sm transition-colors">Conditions d'utilisation</a>
+                        <a href="#" class="text-gray-500 hover:text-primary-400 text-sm transition-colors">Mentions légales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Scripts JavaScript -->
+    <script>
+        // Animation au défilement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion de la soumission du formulaire
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Ici, vous pouvez ajouter le code pour envoyer le formulaire
+                    alert('Message envoyé avec succès !');
+                    contactForm.reset();
+                });
+            }
+
+            // Animation au défilement
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = () => {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Initialisation des éléments avec opacité 0
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            });
+
+            // Premier chargement
+            fadeInOnScroll();
+            
+            // Écouteur de défilement
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Navigation fluide
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
